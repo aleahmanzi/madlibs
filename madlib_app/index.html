@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo" ng-controller="Ctrl">
+<head>
+	<meta charset="UTF-8">
+	<title>Mad Libs</title>
+	<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+	<script src="https://code.angularjs.org/1.3.10/angular.js"></script>
+</head>
+
+<style>
+.hero_wrap { outline: 1px solid black; width: 500px; margin: 0 auto; height: 125px; }
+.hero_data { outline: 0px solid green;  height: 125px; }
+.hero_text { outline: 0px solid #eee; width: 75%; display: inline-block; text-align: center; font-size: 40px; font-family: Architects Daughter; position: relative; bottom: 30px; margin-right: 10px; }
+.face_pic { outline: 0px solid black; height: 85px; position: relative; left: 20px; bottom: 25px;}
+.ang_img { outline: 0px solid blue; height: 40px; position: relative; top: 10px; }
+
+.input_wrap { outline: 1px solid black; width: 500px; margin: 0 auto; font-family: Architects Daughter; font-size: 20px; }
+.input_title { outline: 1px solid black; padding: 10px; }
+.input_data { outline: 1px solid green; }
+
+.main_wrap { outline: 1px solid black; width: 500px; margin: 0 auto; height: 300px; }
+.main_title { outline: 0px solid green; padding: 10px; }
+.main_text { outline: 0px dotted red; font-family: Architects Daughter; font-size: 15px; padding-top: 25px; }
+span { border-bottom: 1px solid #002b36; display: inline-block; min-width: 100px; line-height: 15px; }
+.line { border-bottom: 1px solid #002b36; display: inline-block; min-width: 75px; height: 15px; }
+.word { line-height: 15px; display: inline-block; }
+
+</style>
+
+<script>
+
+var demo = angular.module('demo', []);
+demo.controller('Ctrl', function($scope) {
+
+$scope.word = {
+ maleName: '',
+ jobTitle: '',
+ tediousTask: '',
+ dirtyTask: '',
+ celebrityName: '',
+ uselessSkill: '',
+ adjective: '',
+ obnoxiousCelebrity: '',
+ hugeNumber: ''
+ };
+
+}); /// - Ctrl
+
+
+</script>
+
+<body>
+ <div>
+
+ <div class="hero_wrap">
+  <div class="hero_data">
+    <img class="face_pic" src="../madlib_app/pics/libs_face">
+    <p class="hero_text"><img class="ang_img" src="../madlib_app/pics/ang_sheild"><br/>Automate This!</p>
+  </div><!-- . hero_data - -->
+ </div><!-- . hero_wrap - -->
+
+ <div class="input_wrap">
+  <div class="input_title">
+   <p>Provide the following words:</p>
+   <div class="input_text">
+   	<input type="text" placeholder="enter a male name" ng-model="word.maleName">
+   	<input type="text" placeholder="enter dirty task" ng-model="word.dirtyTask">
+   	<input type="text" placeholder="an obnoxious celebrity"ng-model="word.obnoxiousCelebrity">
+   	<input type="text" placeholder="enter a job title"ng-model="word.jobTitle">
+   	<input type="text" placeholder="entr a celebrity name"ng-model="word.celebrityName">
+   	<input type="text" placeholder="enter a huge number"ng-model="word.hugeNumber">
+   	<input type="text" placeholder="enter a tedious task"ng-model="word.tediousTask">
+   	<input type="text" placeholder="enter a useless skill"ng-model="word.uselessSkill">
+   	<input type="text" placeholder="enter an adjective"ng-model="word.adjective">
+   </div><!-- . input_text - -->
+  </div><!--. input_title - -->	
+ </div><!-- . input_wrap - -->
+
+  <div class="main_wrap">
+  <div class="main_title">
+   <div class="main_text">
+   	<p class="test">
+      <div class="line">
+        <div class="word">
+          {{ word.maleName }}
+        </div>
+      </div>
+      was a 
+      <div class="line">
+        <div class="word">
+          {{ word.jobTitle }}
+        </div> 
+      </div> 
+      who loved technology. Although he loved parts of his job, he absolutely hated
+      <div class="line">
+        <div class="word">
+          {{ word.tediousTask }}
+        </div>
+      </div> 
+      and 
+      <div class="line">
+        <div class="word">
+          {{ word.dirtyTask }}
+        </div>
+      </div>  
+      So, 
+      <div class="line">
+        <div class="word">
+          {{ word.maleName }}
+        </div>
+      </div>  
+      met with his life mentor 
+      <div class="line">
+        <div class="word">
+          {{ word.celebrityName }}
+        </div>
+      </div>
+      who told him to learn how to 
+      <div class="line">
+        <div class="word">
+          {{ word.uselessSkill }}
+        </div>
+      </div>   
+      with Thinkful. Thinkful didn't offer a course on 
+      <div class="line">
+        <div class="word">
+          {{ word.uselessSkill }}
+        </div>
+      </div>
+      so he studied programming instead.
+    </p><!-- . test - -->
+   
+    <p class="test"> 
+      What a great decision! With his news skills, 
+      <div class="line">
+        <div class="word">
+          {{ word.maleName }}
+        </div>
+      </div>
+      built a(n) 
+      <div class="line">
+        <div class="word">
+          {{ word.adjective }}
+        </div>
+      </div>
+      robot named 
+      <div class="line">
+        <div class="word">
+          {{ word.obnoxiousCelebrity }}
+        </div>
+      </div>
+      that not only loved 
+      <div class="line">
+        <div class="word">
+          {{ word.dirtyTask }}
+        </div>
+      </div>
+      but did it 
+      <div class="line">
+        <div class="word">
+          {{ huge_number }}
+        </div>
+      </div>
+      faster.
+    </p><!-- . test - -->
+   </div><!-- . main_text - -->
+  </div><!--. main_title - -->	
+ </div><!-- . main_wrap - -->
+
+ </div>
+</body>
+</html>
