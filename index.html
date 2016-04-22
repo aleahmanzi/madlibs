@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo" ng-controller="Ctrl">
+<head>
+	<meta charset="UTF-8">
+	<title>Mad Libs</title>
+	<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
+  <script type="text/javascript" src="https://code.angularjs.org/1.2.18/angular-animate.min.js"></script>
+
+</head>
+
+<style>
+.hero_wrap { outline: 1px solid black; width: 500px; margin: 0 auto; height: 125px; }
+.hero_data { outline: 0px solid green;  height: 125px; }
+.hero_text { outline: 0px solid #eee; width: 75%; display: inline-block; text-align: center; font-size: 40px; font-family: Architects Daughter; position: relative; bottom: 30px; margin-right: 10px; }
+.face_pic { outline: 0px solid black; height: 85px; position: relative; left: 20px; bottom: 25px;}
+.ang_img { outline: 0px solid blue; height: 40px; position: relative; top: 10px; }
+
+.input_wrap { outline: 1px solid black; width: 500px; margin: 0 auto; font-family: Architects Daughter; font-size: 20px; position: relative; bottom: 20px; }
+.input_title { outline: 0px solid black; padding-left: 10px; }
+.input_text { padding-bottom: 10px; }
+.gender_wrap p { padding-left: 10px; padding-top: 10px; }
+.gender_button { cursor: pointer; border: 1px solid #999; width: 100px; text-align: center; font-size: 16px; display: inline-block; border-radius: 5px; color: #999; position: relative; left: 150px; }
+.gender_button:hover { border: 1px solid #222; color: #222; } 
+input[type="text"]{ height: 18px; width: 200px; }
+.input_data { outline: 0px solid green; }
+.form_wrap { margin-left: 55px; margin-top: 35px; outline: 1px solid #eee; width: 345px; padding: 45px; }
+tr { height: 32px; }
+td.label { font-size: 14px; text-align: right; padding-right: 10px; }
+input[type="text"] { width: 200px; height: 16px; }
+
+.main_wrap { outline: 1px solid black; width: 500px; margin: 0 auto; height: 350px; }
+.main_title { outline: 0px solid green; padding: 10px; }
+.main_text { outline: 0px dotted red; font-family: Architects Daughter; font-size: 15px; padding-top: 10px; }
+.line { border-bottom: 1px solid #002b36; display: inline-block; min-width: 75px; height: 15px; }
+.other_line { display: inline-block; }
+.word { line-height: 15px; display: inline-block; }
+
+.input_wrap, .main_wrap {
+  -webkit-transition: 0.3s linear all;
+  transition: 0.3s linear all;
+  opacity: 1;
+}
+
+.input_wrap.ng-hide {
+  opacity: 0;
+  margin-left: -500px;
+}
+
+.main_wrap.ng-hide{
+  opacity: 0;
+  margin-left: 500px;
+}
+
+.input_wrap.ng-hide-add, .main_wrap.ng-hide-add {
+  display: block !important;
+}
+.input_wrap.ng-hide-remove, .main_wrap.ng-hide-remove {
+  display: block !important;
+}
+
+
+</style>
+
+<script>
+
+var demo = angular.module('demo', ['ngAnimate']);
+  demo.controller('Ctrl', function ($scope){
+$scope.inputOptions = true;
+
+ $scope.genderOne = 'her';
+ $scope.genderTwo = 'she'
+ $scope.genderThree = 'her'
+/// - default values
+
+ $scope.setMale = function(){
+  $scope.genderOne = 'his';
+  $scope.genderTwo = 'he'
+  $scope.genderThree = 'him'
+ }; /// - set male version of paragraph
+
+ $scope.setFemale = function(){
+  $scope.genderOne = 'her';
+  $scope.genderTwo = 'she'
+  $scope.genderThree = 'her'
+ }; /// - set female version of paragraph
+
+  $scope.userSubmit = function() {
+    //console.log("test")
+    $scope.inputOptions = false;
+  };/// - submit user selections
+
+  $scope.restart = function() {
+    $scope.inputOptions = true;
+    $scope.word = {};
+  };/// - start game over, return to default
+
+$scope.word = {
+ maleName: '',
+ jobTitle: '',
+ tediousTask: '',
+ dirtyTask: '',
+ celebrityName: '',
+ uselessSkill: '',
+ adjective: '',
+ obnoxiousCelebrity: '',
+ hugeNumber: ''
+ };
+
+}); /// - Ctrl
+
+
+</script>
+
+<body>
+ <div>
+
+ <div class="hero_wrap">
+  <div class="hero_data">
+    <img class="face_pic" src="../madlib_app/pics/libs_face">
+    <p class="hero_text"><img class="ang_img" src="../madlib_app/pics/ang_sheild"><br/>Automate This!</p>
+  </div><!-- . hero_data - -->
+ </div><!-- . hero_wrap - -->
+
+ <div class="input_wrap" ng-show="inputOptions">
+
+  <div class="gender_wrap">
+   <p>Select your gender:</p>
+    <div class="gender_button" ng-click="setMale()">male</div>
+    <div class="gender_button" ng-click="setFemale()">female</div>
+  </div>
+
+  <div class="input_title">
+   <p>Provide the following words:</p>
+   <div class="input_text">
+     <table>
+        <tr>
+          <td class="label">Name</td>
+          <td class="input"><input type="text" ng-model="word.maleName" /></td>
+        </tr>
+        <tr>
+          <td class="label">Dirty Task</td>
+          <td class="input"><input type="text" ng-model="word.dirtyTask" /></td>
+        </tr>
+        <tr>
+          <td class="label">Obnoxious Celebrity</td>
+          <td class="input"><input type="text" ng-model="word.obnoxiousCelebrity" /></td>
+        </tr>
+        <tr>
+          <td class="label">Job Title</td>
+          <td class="input"><input type="text" ng-model="word.jobTitle" /></td>
+        </tr>
+        <tr>
+          <td class="label">Celebrity Name</td>
+          <td class="input"><input type="text" ng-model="word.celebrityName" /></td>
+        </tr>
+        <tr>
+          <td class="label">Huge Number</td>
+          <td class="input"><input type="text" ng-model="word.hugeNumber" /></td>
+        </tr>
+        <tr>
+          <td class="label">Tedious Task</td>
+          <td class="input"><input type="text" ng-model="word.tediousTask" /></td>
+        </tr>
+        <tr>
+          <td class="label">Useless Skill</td>
+          <td class="input"><input type="text" ng-model="word.uselessSkill" /></td>
+        </tr>
+        <tr>
+          <td class="label">Adjective</td>
+          <td class="input"><input type="text" ng-model="word.adjective" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td style="text-align:right"><input type="submit" ng-click="userSubmit()" value="Submit"/></td>
+        </tr>
+      </table>
+   </div><!-- . input_text - -->
+  </div><!--. input_title - -->	
+ </div><!-- . input_wrap - -->
+
+  <div class="main_wrap" ng-show="!inputOptions">
+  <div class="main_title">
+   <div class="main_text">
+   	<p class="test">
+      <div class="line">
+        <div class="word">
+          {{ word.maleName }}
+        </div>
+      </div>
+      was a 
+      <div class="line">
+        <div class="word">
+          {{ word.jobTitle }}
+        </div> 
+      </div> 
+      who loved technology. Although 
+      <div class="other_line">
+        <div class="">
+          {{ genderTwo }}
+        </div> 
+      </div>
+      loved parts of 
+      <div class="other_line">
+        <div class="">
+          {{ genderOne }}
+        </div> 
+      </div>  
+      job, 
+      <div class="other_line">
+        <div class="word">
+          {{ genderTwo }}
+        </div> 
+      </div>
+      absolutely hated
+      <div class="line">
+        <div class="word">
+          {{ word.tediousTask }}
+        </div>
+      </div> 
+      and 
+      <div class="line">
+        <div class="word">
+          {{ word.dirtyTask }}
+        </div>
+      </div>  
+      So, 
+      <div class="line">
+        <div class="word">
+          {{ word.maleName }}
+        </div>
+      </div>  
+      met with 
+      <div class="other_line">
+        <div class="word">
+          {{ genderOne }}
+        </div> 
+      </div> 
+      life mentor 
+      <div class="line">
+        <div class="word">
+          {{ word.celebrityName }}
+        </div>
+      </div>
+      who told 
+      <div class="other_line">
+        <div class="word">
+          {{ genderThree }}
+        </div> 
+      </div> 
+      to learn how to 
+      <div class="line">
+        <div class="word">
+          {{ word.uselessSkill }}
+        </div>
+      </div>   
+      with Thinkful. Thinkful didn't offer a course on 
+      <div class="line">
+        <div class="word">
+          {{ word.uselessSkill }}
+        </div>
+      </div>
+      so 
+      <div class="other_line">
+        <div class="word">
+          {{ genderTwo }}
+        </div> 
+      </div>studied programming instead.
+    </p><!-- . test - -->
+   
+    <p class="test"> 
+      What a great decision! With
+      <div class="other_line">
+        <div class="word">
+          {{ genderOne }}
+        </div> 
+      </div> 
+      new skills, 
+      <div class="line">
+        <div class="word">
+          {{ word.maleName }}
+        </div>
+      </div>
+      built a(n) 
+      <div class="line">
+        <div class="word">
+          {{ word.adjective }}
+        </div>
+      </div>
+      robot named 
+      <div class="line">
+        <div class="word">
+          {{ word.obnoxiousCelebrity }}
+        </div>
+      </div>
+      that not only loved 
+      <div class="line">
+        <div class="word">
+          {{ word.dirtyTask }}
+        </div>
+      </div>
+      but did it 
+      <div class="line">
+        <div class="word">
+          {{ word.hugeNumber }}
+        </div>
+      </div>
+      faster.
+      <div style="text-align:right"><input type="submit" ng-click="restart()" value="Reset" /></div>
+    </p><!-- . test - -->
+   </div><!-- . main_text - -->
+  </div><!--. main_title - -->	
+ </div><!-- . main_wrap - -->
+
+ </div>
+</body>
+</html>
