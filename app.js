@@ -2,6 +2,8 @@ var demo = angular.module('demo', ['ngAnimate']);
   demo.controller('Ctrl', function ($scope){
   $scope.inputOptions = true;
 
+   $scope.male = 'no'; 
+   $scope.female = 'no';
    $scope.genderOne = 'her';
    $scope.genderTwo = 'she'
    $scope.genderThree = 'her'
@@ -11,22 +13,25 @@ var demo = angular.module('demo', ['ngAnimate']);
     $scope.genderOne = 'his';
     $scope.genderTwo = 'he'
     $scope.genderThree = 'him'
+    $scope.male = 'yes';
    }; /// - set male version of paragraph
 
    $scope.setFemale = function(){
     $scope.genderOne = 'her';
     $scope.genderTwo = 'she'
     $scope.genderThree = 'her'
+    $scope.female = 'yes';
    }; /// - set female version of paragraph
 
-    $scope.userSubmit = function() {
-      //console.log("test")
-      $scope.inputOptions = false;
+    $scope.create = function() {
+       $scope.inputOptions = false;
     };/// - submit user selections
 
     $scope.restart = function() {
       $scope.inputOptions = true;
       $scope.word = {};
+      $scope.female = 'no';
+      $scope.male = 'no';
     };/// - start game over, return to default
 
   $scope.word = {

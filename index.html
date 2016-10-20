@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mad Libs</title>
-	<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Anton|Play" rel="stylesheet">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
   <script type="text/javascript" src="https://code.angularjs.org/1.2.18/angular-animate.min.js"></script>
 
@@ -13,7 +13,6 @@
 </head>
 
 <body>
- <div>
 
  <div class="hero_wrap">
   <div class="hero_data">
@@ -26,58 +25,83 @@
 
   <div class="gender_wrap">
    <p>Select your gender:</p>
-    <div class="gender_button" ng-click="setMale()">male</div>
-    <div class="gender_button" ng-click="setFemale()">female</div>
-  </div>
+   <div class="button_wrap">
+    <div class="gender_button male-{{male}}" ng-click="setMale()">male</div>
+    <div class="gender_button female-{{female}}" ng-click="setFemale()">female</div>
+   </div><!-- . button_wrap - -->
+  </div><!-- . gender_wrap - -->
+
 
   <div class="input_title">
    <p>Provide the following words:</p>
    <div class="input_text">
-     <table>
-        <tr>
-          <td class="label">Name</td>
-          <td class="input"><input type="text" ng-model="word.maleName" /></td>
-        </tr>
-        <tr>
-          <td class="label">Dirty Task</td>
-          <td class="input"><input type="text" ng-model="word.dirtyTask" /></td>
-        </tr>
-        <tr>
-          <td class="label">Obnoxious Celebrity</td>
-          <td class="input"><input type="text" ng-model="word.obnoxiousCelebrity" /></td>
-        </tr>
-        <tr>
-          <td class="label">Job Title</td>
-          <td class="input"><input type="text" ng-model="word.jobTitle" /></td>
-        </tr>
-        <tr>
-          <td class="label">Celebrity Name</td>
-          <td class="input"><input type="text" ng-model="word.celebrityName" /></td>
-        </tr>
-        <tr>
-          <td class="label">Huge Number</td>
-          <td class="input"><input type="text" ng-model="word.hugeNumber" /></td>
-        </tr>
-        <tr>
-          <td class="label">Tedious Task</td>
-          <td class="input"><input type="text" ng-model="word.tediousTask" /></td>
-        </tr>
-        <tr>
-          <td class="label">Useless Skill</td>
-          <td class="input"><input type="text" ng-model="word.uselessSkill" /></td>
-        </tr>
-        <tr>
-          <td class="label">Adjective</td>
-          <td class="input"><input type="text" ng-model="word.adjective" /></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td style="text-align:right"><input type="submit" ng-click="userSubmit()" value="Submit"/></td>
-        </tr>
-      </table>
+     <form ng-submit="create()"> 
+       <table name="form">
+          <tr>
+            <td class="label">Name</td>
+            <td class="input">
+              <input type="text" ng-model="word.maleName" required/>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Dirty Task</td>
+            <td class="input">
+              <input type="text" ng-model="word.dirtyTask" required/>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Obnoxious Celebrity</td>
+            <td class="input">
+              <input type="text" ng-model="word.obnoxiousCelebrity" rrequired/>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Job Title</td>
+            <td class="input">
+              <input type="text" ng-model="word.jobTitle" required/>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Celebrity Name</td>
+            <td class="input">
+              <input type="text" ng-model="word.celebrityName" required/>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Huge Number</td>
+            <td class="input">
+              <input type="text" ng-model="word.hugeNumber" required/>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Tedious Task</td>
+            <td class="input">
+              <input type="text" ng-model="word.tediousTask" required/>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Useless Skill</td>
+            <td class="input">
+              <input type="text" ng-model="word.uselessSkill" required>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Adjective</td>
+            <td class="input">
+              <input type="text" ng-model="word.adjective" required/>
+            </td>
+          </tr>
+        </table>
+        <div>
+          <div class="submit_button">
+            <button type="text" ng-model="word.adjective" required>Submit</button>
+          </div><!-- . submit_button - -->
+        </div>
+      </form>  
    </div><!-- . input_text - -->
-  </div><!--. input_title - -->	
+  </div><!--. input_title - -->
  </div><!-- . input_wrap - -->
+
 
   <div class="main_wrap" ng-show="!inputOptions">
   <div class="main_title">
@@ -206,12 +230,19 @@
         </div>
       </div>
       faster.
-      <div style="text-align:right"><input type="submit" ng-click="restart()" value="Reset" /></div>
+      <div class="end_buttons">
+        <div class="restart" style="text-align:right">
+          <input type="submit" ng-click="restart()" value="Reset" />
+        </div>
+        <div class="edit" style="text-align:right">
+          <input type="submit" ng-click="restart()" value="Edit"/>
+        </div>
+      </div><!-- . end_buttons - -->   
+
     </p><!-- . test - -->
    </div><!-- . main_text - -->
   </div><!--. main_title - -->	
  </div><!-- . main_wrap - -->
 
- </div>
 </body>
 </html>

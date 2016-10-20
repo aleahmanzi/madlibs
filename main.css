@@ -1,28 +1,40 @@
 .hero_wrap { outline: 1px solid black; width: 500px; margin: 0 auto; height: 125px; }
 .hero_data { outline: 0px solid green;  height: 125px; }
-.hero_text { outline: 0px solid #eee; width: 75%; display: inline-block; text-align: center; font-size: 40px; font-family: Architects Daughter; position: relative; bottom: 30px; margin-right: 10px; }
+.hero_text { outline: 0px solid #eee; width: 75%; display: inline-block; text-align: center; font-size: 40px; font-family: "Anton"; position: relative; bottom: 30px; margin-right: 10px; }
 .face_pic { outline: 0px solid black; height: 85px; position: relative; left: 20px; bottom: 25px;}
 .ang_img { outline: 0px solid blue; height: 40px; position: relative; top: 10px; }
 
-.input_wrap { outline: 1px solid black; width: 500px; margin: 0 auto; font-family: Architects Daughter; font-size: 20px; position: relative; bottom: 20px; }
+.input_wrap { outline: 1px solid black; width: 500px; margin: 0 auto; font-family: "Play"; font-size: 20px; position: relative; bottom: 20px; }
 .input_title { outline: 0px solid black; padding-left: 10px; }
-.input_text { padding-bottom: 10px; }
+.input_text { padding-bottom: 10px; padding-left: 20px; }
+
 .gender_wrap p { padding-left: 10px; padding-top: 10px; }
-.gender_button { cursor: pointer; border: 1px solid #999; width: 100px; text-align: center; font-size: 16px; display: inline-block; border-radius: 5px; color: #999; position: relative; left: 150px; }
+.button_wrap { padding-left: 20px; }
+.gender_button { cursor: pointer; width: 100px; text-align: center; font-size: 16px; display: inline-block; border-radius: 5px; position: relative; left: 150px; }
 .gender_button:hover { border: 1px solid #222; color: #222; } 
+.male-yes { border: 1px solid #222; color: #222; }
+.male-no { border: 1px solid #999; color: #999; } 
+.female-yes { border: 1px solid #222; color: #222; }
+.female-no { border: 1px solid #999; color: #999; } 
 input[type="text"]{ height: 18px; width: 200px; }
 .input_data { outline: 0px solid green; }
 .form_wrap { margin-left: 55px; margin-top: 35px; outline: 1px solid #eee; width: 345px; padding: 45px; }
 tr { height: 32px; }
 td.label { font-size: 14px; text-align: right; padding-right: 10px; }
 input[type="text"] { width: 200px; height: 16px; }
+.submit_button { outline: 0px solid red; display: inline-block; width: 100%; }
+.submit_button button { bottom: 10px; float: right; margin-right: 25px; }
 
 .main_wrap { outline: 1px solid black; width: 500px; margin: 0 auto; height: 350px; }
 .main_title { outline: 0px solid green; padding: 10px; }
-.main_text { outline: 0px dotted red; font-family: Architects Daughter; font-size: 15px; padding-top: 10px; }
+.main_text { outline: 0px dotted red; font-family: "Play"; font-size: 15px; padding-top: 10px; }
 .line { border-bottom: 1px solid #002b36; display: inline-block; min-width: 75px; height: 15px; }
 .other_line { display: inline-block; }
-.word { line-height: 15px; display: inline-block; }
+.word { line-height: 15px; display: inline-block; text-align: center; }
+
+.end_buttons { display: inline-block; outline: 1px sold red; float: right; margin-top: 25px; }
+.restart { display: inline-block;  margin-right: 5px; }
+.edit { display: inline-block; margin-right: 15px; }
 
 .input_wrap, .main_wrap {
   -webkit-transition: 0.3s linear all;
