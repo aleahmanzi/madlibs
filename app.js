@@ -27,6 +27,12 @@ var demo = angular.module('demo', ['ngAnimate']);
        $scope.inputOptions = false;
     };/// - submit user selections
 
+    $scope.edit = function() {
+      $scope.inputOptions = true;
+      $scope.female = 'no';
+      $scope.male = 'no';
+    };/// - start game over, return to default
+
     $scope.restart = function() {
       $scope.inputOptions = true;
       $scope.word = {};
