@@ -1,6 +1,10 @@
 var demo = angular.module('demo', ['ngAnimate']);
   demo.controller('Ctrl', function ($scope){
-  $scope.inputOptions = true;
+  
+   $scope.startGame = true;
+   $scope.inputOptions = false;
+   $scope.beginHeader = false;
+   $scope.resultsWrap = false;
 
    $scope.male = 'no'; 
    $scope.female = 'no';
@@ -8,6 +12,12 @@ var demo = angular.module('demo', ['ngAnimate']);
    $scope.genderTwo = 'she'
    $scope.genderThree = 'her'
   /// - default values
+
+  $scope.startGame = function(){
+    $scope.startGame = false;
+    $scope.inputOptions = true;
+    $scope.beginHeader = true;
+  } /// - remove entry picture and start game
 
    $scope.setMale = function(){
     $scope.genderOne = 'his';
@@ -25,14 +35,17 @@ var demo = angular.module('demo', ['ngAnimate']);
 
     $scope.create = function() {
        $scope.inputOptions = false;
+       $scope.resultsWrap = true;
     };/// - submit user selections
 
     $scope.edit = function() {
       $scope.inputOptions = true;
+      $scope.resultsWrap = false;
     };/// - start game over, return to default
 
     $scope.restart = function() {
       $scope.inputOptions = true;
+      $scope.resultsWrap = false;
       $scope.word = {};
       $scope.female = 'no';
       $scope.male = 'no';

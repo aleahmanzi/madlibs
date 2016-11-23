@@ -14,10 +14,17 @@
 
 <body>
 
- <div class="hero_wrap">
+ <div class="start_wrap" ng-show="startGame">
+  <div class="start_data">
+    <div class="start_button" ng-click="startGame()">START</div>
+    <img class="start_pic" src="pics/start.jpeg" alt="first_pic">
+  </div><!-- . start_data - -->
+ </div><!-- . start_wrap - -->
+
+ <div class="hero_wrap" ng-show="beginHeader">
   <div class="hero_data">
-    <img class="face_pic" src="pics/libs_face.png">
-    <p class="hero_text">Automate This!</p>
+    <img class="logo" src="pics/logo.png" alt="icon">
+    <p class="hero_text">Automated!</p>
   </div><!-- . hero_data - -->
  </div><!-- . hero_wrap - -->
 
@@ -103,7 +110,7 @@
  </div><!-- . input_wrap - -->
 
 
-  <div class="main_wrap" ng-show="!inputOptions">
+  <div class="main_wrap" ng-show="resultsWrap">
   <div class="main_title">
    <div class="main_text">
    	<p class="test">
