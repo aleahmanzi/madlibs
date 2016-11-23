@@ -14,12 +14,10 @@ body { background-color: #771A73; }
 .input_title { outline: 0px solid black; padding-left: 10px; }
 .input_text { padding-bottom: 10px; padding-left: 20px; }
 
-.gender_wrap p { padding-left: 10px; padding-top: 10px; }
-.button_wrap { padding-left: 20px; }
-.gender_button { cursor: pointer; width: 100px; text-align: center; font-size: 16px; display: inline-block; border-radius: 5px; position: relative; left: 150px; }
-.gender_button:hover { border: 1px solid #222; color: #222; } 
-.male-yes { border: 1px solid #222; color: #222; }
-.male-no { border: 1px solid #999; color: #999; } 
+.gender_wrap p { outline: 0px solid red; padding-left: 10px; padding-top: 10px; width: 100%; }
+.button_wrap { width: 300px; padding-left: 175px; }
+.gender_button { margin-right: 5px; }
+
 .female-yes { border: 1px solid #222; color: #222; }
 .female-no { border: 1px solid #999; color: #999; } 
 input[type="text"]{ height: 18px; width: 200px; }

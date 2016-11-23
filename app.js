@@ -20,6 +20,7 @@ var demo = angular.module('demo', ['ngAnimate']);
   } /// - remove entry picture and start game
 
    $scope.setMale = function(){
+    $scope.gender = 'Male Name';
     $scope.genderOne = 'his';
     $scope.genderTwo = 'he'
     $scope.genderThree = 'him'
@@ -27,6 +28,7 @@ var demo = angular.module('demo', ['ngAnimate']);
    }; /// - set male version of paragraph
 
    $scope.setFemale = function(){
+    $scope.gender = 'Female Name';
     $scope.genderOne = 'her';
     $scope.genderTwo = 'she'
     $scope.genderThree = 'her'
@@ -46,6 +48,7 @@ var demo = angular.module('demo', ['ngAnimate']);
     $scope.restart = function() {
       $scope.inputOptions = true;
       $scope.resultsWrap = false;
+      $scope.gender = '';
       $scope.word = {};
       $scope.female = 'no';
       $scope.male = 'no';

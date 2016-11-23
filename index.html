@@ -33,8 +33,8 @@
   <div class="gender_wrap">
    <p>Select your gender:</p>
    <div class="button_wrap">
-    <div class="gender_button male-{{male}}" ng-click="setMale()">male</div>
-    <div class="gender_button female-{{female}}" ng-click="setFemale()">female</div>
+    <input class="gender_button" ng-model="gender" type="radio" ng-change="setMale()" value="Male Name">Male</input>
+    <input class="gender_button" ng-model="gender" type="radio" ng-change="setFemale()" value="Female Name">Female</input>
    </div><!-- . button_wrap - -->
   </div><!-- . gender_wrap - -->
 
